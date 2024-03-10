@@ -7,8 +7,10 @@ function App() {
   const [yukleniyor, yukleniyorGuncelle] = useState(true);
 
   useEffect(() => {
+    const LSVeriCek = async () => localStorage.getItem("rehberJSON");
+
     async function rehberCek() {
-      const rehberJSON = await localStorage.getItem("rehberJSON");
+      const rehberJSON = await LSVeriCek();
       const rehberVeri = JSON.parse(rehberJSON);
 
       veriGuncelle(rehberVeri);
